@@ -1,91 +1,88 @@
-🛍️ Eira Store – Handmade E‑commerce Platform
-A full‑featured online store for handcrafted bags, accessories, candles, keychains, cups and personalised items.
-Built with PHP (vanilla), MySQL, HTML/CSS/JS and a touch of Canvas API for product customisation.
+# 🛍️ Eira Store – Handmade E‑commerce Platform
 
-https://img.shields.io/badge/PHP-8.0%252B-777BB4?logo=php&logoColor=white
-https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white
-https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black
-https://img.shields.io/badge/Responsive-Yes-2E8B57
+A full‑featured online store for handcrafted bags, accessories, candles, keychains, cups and personalised items.  
+Built with **PHP (vanilla)**, **MySQL**, **HTML/CSS/JS** and a touch of **Canvas API** for product customisation.
 
-✨ Features
-👤 Customer side
-User accounts – register, login, session management
+---
 
-Product catalogue – filter by category, search by name
+## ✨ Features
 
-Shopping cart – add/update/remove items (database backed)
+### 👤 Customer side
+- **User accounts** – register, login, session management
+- **Product catalogue** – filter by category, search by name
+- **Shopping cart** – add/update/remove items (database backed)
+- **Favourites (wishlist)** – like/unlike products
+- **Order checkout** – delivery details, time slot, notes
+- **Order history** – view past orders with status
+- **Product reviews** – star rating + text, aggregated stats
+- **Contact form** – message + optional image upload
+- **Customisation tools** – interactive canvas design for **tote bags** (`customizeBag.php`) and **mugs** (`customizeCup.php`) with colour, image upload, text and position controls. Download final design as PNG.
 
-Favourites (wishlist) – like/unlike products
+### 🔐 Admin panel (`/admin`)
+- Dashboard with statistics (orders, revenue, users, products, messages)
+- **Order management** – update status (pending → confirmed → shipped → delivered → cancelled)
+- **Product CRUD** – add, edit, delete products (name, price, category, images, descriptions, features, badges)
+- **User list** – view registered users and their order count
+- **Contact messages** – view and delete messages, preview uploaded images
+- Logout
 
-Order checkout – delivery details, time slot, notes
+---
 
-Order history – view past orders with status
+## 🛠️ Tech Stack
 
-Product reviews – star rating + text, aggregated stats
+| Layer       | Technology                         |
+|-------------|------------------------------------|
+| Backend     | PHP 8+ (no framework)              |
+| Database    | MySQL (PDO)                        |
+| Frontend    | HTML5, CSS3, JavaScript (ES6)      |
+| Libraries   | Font Awesome 6, Google Fonts       |
+| Images      | Local storage (uploaded & static)  |
+| Canvas      | Custom mug & bag designer (client‑side PNG export) |
 
-Contact form – message + optional image upload
+---
 
-Customisation tools – interactive canvas design for tote bags (customizeBag.php) and mugs (customizeCup.php) with colour, image upload, text and position controls. Download final design as PNG.
-
-🔐 Admin panel (/admin)
-Dashboard with statistics (orders, revenue, users, products, messages)
-
-Order management – update status (pending → confirmed → shipped → delivered → cancelled)
-
-Product CRUD – add, edit, delete products (name, price, category, images, descriptions, features, badges)
-
-User list – view registered users and their order count
-
-Contact messages – view and delete messages, preview uploaded images
-
-Logout
-
-🛠️ Tech Stack
-Layer	Technology
-Backend	PHP 8+ (no framework)
-Database	MySQL (PDO)
-Frontend	HTML5, CSS3, JavaScript (ES6)
-Libraries	Font Awesome 6, Google Fonts
-Images	Local storage (uploaded & static)
-Canvas	Custom mug & bag designer (client‑side PNG export)
-📁 Project Structure (simplified)
-text
+## 📁 Project Structure (simplified)
 eira-store/
-├── index.php               # Homepage
-├── products.php            # Product listing with filters
-├── product-detail-modal    (dynamic modal)
+├── index.php # Homepage
+├── products.php # Product listing with filters
 ├── cart.php / favorites.php
-├── account.php             # Orders & profile
-├── reviews.php             # Customer reviews
-├── contact.php             # Contact form with image upload
+├── account.php # Orders & profile
+├── reviews.php # Customer reviews
+├── contact.php # Contact form with image upload
 ├── about.php / faq.php
-├── customizeBag.php        # Canvas bag designer
-├── customizeCup.php        # Canvas mug designer
-├── admin/                  # Admin dashboard
-│   └── index.php
-├── api/                    # All AJAX endpoints
-│   ├── cart.php
-│   ├── favorites.php
-│   ├── order.php
-│   ├── products.php
-│   ├── reviews.php
-│   ├── contact.php
-│   ├── admin_*.php
-│   └── logout.php
+├── customizeBag.php # Canvas bag designer
+├── customizeCup.php # Canvas mug designer
+├── admin/ # Admin dashboard
+│ └── index.php
+├── api/ # All AJAX endpoints
+│ ├── cart.php
+│ ├── favorites.php
+│ ├── order.php
+│ ├── products.php
+│ ├── reviews.php
+│ ├── contact.php
+│ ├── admin_*.php
+│ └── logout.php
 ├── includes/
-│   ├── db.php              # Database connection
-│   ├── auth.php            # Session & login helpers
-│   ├── header.php          # Global header + nav
-│   └── footer.php          # Footer + order popup
-├── uploads/contact/        # Uploaded contact images (auto‑created)
-├── image/                  # Product photos, logo, icons
-├── style.css               # Global styles
-├── script.js               # Shared JS (cart, fav, modal, etc.)
-├── database.sql            # Full schema + sample data
-└── setpass.php             # (DELETE) one‑time password reset script
-🚀 Installation (Local / XAMPP)
-1. Clone the repository
-bash
+│ ├── db.php # Database connection
+│ ├── auth.php # Session & login helpers
+│ ├── header.php # Global header + nav
+│ └── footer.php # Footer + order popup
+├── uploads/contact/ # Uploaded contact images (auto‑created)
+├── image/ # Product photos, logo, icons
+├── style.css # Global styles
+├── script.js # Shared JS (cart, fav, modal, etc.)
+├── database.sql # Full schema + sample data
+└── setpass.php # (DELETE) one‑time password reset script
+
+text
+
+---
+
+## 🚀 Installation (Local / XAMPP)
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/your-username/eira-store.git
 Place the folder inside your web server root (e.g. htdocs/ for XAMPP).
 
@@ -205,3 +202,10 @@ Fonts from Google Fonts
 Inspired by small creative businesses and their love for handmade goods.
 
 Crafted with 🖤 by the Eira team.
+
+text
+
+**How to use:**  
+1. Create a new file in your project root called `README.md`  
+2. Paste the entire content above  
+3. Save and commit to GitHub  
